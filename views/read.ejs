@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mongo-practice</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900">
+  <div class="w-full h-full bg-zinc-900 text-white">
+    <div class="mt-5"></div>
+    <a href="/" class="ml-9 underline text-blue-700 text-bold mt-8">&lt; Back to home</a>
+    <h1 class="  ml-9 text-3xl [System-ui]">all user</h1>
+    <div class="px-9 flex gap-3 flex-wrap py-7">
+      <% user.forEach((usr)=> { %>
+        <div class="p-4 max-w-72 rounded-2xl bg-zinc-800">
+          <div class="bg-zinc-700 overflow-hidden  rounded-lg h-45 w-full">
+            <img class="w-full h-full object-cover" src="<%=usr.image%>" alt="">
+          </div>
+          <h3 class="mt-1 text-xl text-white">
+            <%= usr.name %>
+          </h3>
+          <p class="text-zinc-400 mt-1 text-sm">
+            <%= usr.email %>
+          </p>
+          <div class="flex gap-2 ">
+            <a class="text-blue-700  text-lg pr-3 py-2" href="">edit user</a>
+            <a class="text-red-700 text-lg px-3 py-2" href="/delete/<%=usr._id%>">delete user</a>
+          </div>
+        </div>
+        <% }) %>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>
