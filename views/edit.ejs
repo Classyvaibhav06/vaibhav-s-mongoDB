@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mongo-practice</title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-900">
+  <div class="w-full h-full bg-zinc-900 text-white">
+    <div class="mt-5"></div>
+    <a class="ml-9 underline text-blue-700 text-bold mt-8" href="/read">read-user:></a>
+    <h1 class="ml-9 text-3xl [System-ui]">edit user </h1>
+   <form class="pt-5 pl-9" action="/update/<%=user._id%>" method="POST">
+    <input 
+        class="text-zinc-300 rounded px-5 py-2 bg-transparent border-2 outline-none border-zinc-400" 
+        type="text" name="name" 
+        value="<%=user.name%>"
+        placeholder="Type name..."
+    >
+    <input 
+        class="text-zinc-300 rounded px-5 py-2 bg-transparent border-2 outline-none border-zinc-400" 
+        type="text" name="email"
+        value="<%=user.email%>"
+        placeholder="Type email..."
+    >
+    <input 
+        class="text-zinc-300 rounded px-5 py-2 bg-transparent border-2 outline-none border-zinc-400" 
+        type="text" name="image"
+        value="<%=user.image%>"
+        placeholder="enter image url..."
+    >
+    <input 
+        class="text-zinc-800 bold rounded pl-3 w-30 py-2 pr-3 cursor-pointer bg-yellow-400 border-none outline-none border-zinc-400" 
+        type="submit" 
+        placeholder="Update info"
+    >
+   </form>
+  </div>
+</body>
+</html>

@@ -39,6 +39,25 @@ app.get("/delete/:id",async (req,res)=>{
   res.redirect("/read")
 })
 
+//editing a user
+app.get("/edit/:id",async (req,res)=>{
+  let userid=req.params.id;
+  let user=await userModel.findById(userid);
+  res.render("edit.ejs",{user})
+})
+//updating a user
+app.post("/update/:id", (req,res)=>{
+  let userid=req.params.id;
+  let  {name,email,image} = req.body;
+  userModel.findByIdAndUpdate(userid,{
+    name,
+    email,
+    image
+  }).then(()=>{
+    res.redirect("/read")
+  })
+})
+
 //listening to server
 app.listen("3000",()=>{
   console.log("app is running at localhot:3000")
